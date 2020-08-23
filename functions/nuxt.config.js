@@ -29,6 +29,7 @@ module.exports =  {
   ** Global CSS
   */
   css: [
+    '../IMS-Web-Source/assets/style.bundle.scss'
   ],
   /*
   ** Plugins to load before mounting the App
