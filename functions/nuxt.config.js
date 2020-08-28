@@ -29,7 +29,7 @@ module.exports =  {
   ** Global CSS
   */
   css: [
-    '../IMS-Web-Source/assets/style.bundle.scss'
+    '~/assets/style.bundle.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -55,6 +55,7 @@ module.exports =  {
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    'nuxt-i18n'
   ],
   /*
   ** Axios module configuration
@@ -66,5 +67,32 @@ module.exports =  {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  }
+  },
+  router:{
+    // middleware:['siteLang']
+  },
+  i18n: {
+    detectBrowserLanguage: false,
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English'
+      },
+      {
+        code: 'th',
+        iso: 'th-TH',
+        name: 'ไทย'
+      }
+    ],
+    defaultLocale: 'en',
+    defaultLocaleRouteNameSuffix: 'default',
+    strategy: 'no_prefix',
+    vueI18n: {
+      messages: {
+        th: require('./lang/th.json'),
+        en: require('./lang/en.json')
+      }
+    }
+  },
 }
